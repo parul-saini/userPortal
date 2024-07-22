@@ -1,0 +1,36 @@
+<!-- <p>login works!</p> -->
+ <div class="container-fluid row">
+
+    <div class="col-md-6 side-image d-flex justify-content-center align-items-center flex-column">
+       <div>
+        <img src="../../../assets/login.png" alt="loginimage" srcset="">
+       </div>
+    </div>
+    <div class="col-md-6 right-side-content d-flex justify-content-center align-items-center flex-column">
+        <div class="mb-5">
+            <h2>LOGO</h2>
+        </div>
+        <div class="container outer-box ">
+            <h3>Sign In</h3>
+            <div class="inner-box">
+                <form action="" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Enter Your Email address</label>
+                        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" formControlName="email" [class.border-danger]="(loginForm.get('email')?.invalid && loginForm.get('email')?.touched )" [(ngModel)]="loginEmail" (ngModelChange)="checkValidEmail($event)">
+                        <div *ngIf="!loginEmail && loginForm.get('email')?.touched" class="text-danger">*Email is required</div> 
+                        <div *ngIf="loginEmail && !isValidEmail" class="text-danger">*Email is Invalid</div> 
+                    </div>
+                        <label for="inputPassword5" class="form-label">Enter Your Password</label>
+                        <input type="password" id="inputPassword5" class="form-control" aria-describedby="passwordHelpBlock" placeholder="Password" formControlName="password"[class.border-danger]="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+                        <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched" class="text-danger">*Password is required</div> 
+                        <!-- <div id="passwordHelpBlock" class="form-text">
+                        Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
+                        </div> -->
+                    <button type="submit" style="padding: 10px;" class="mt-4 btn btn-primary w-100"  
+                    [disabled]="loginForm.invalid">Sign In</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+ </div>

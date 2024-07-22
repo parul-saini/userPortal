@@ -1,0 +1,27 @@
+.side-image{
+    background-image: url('../../../assets/Group\ 223.png');
+    height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+.inner-box{
+    margin-top: 35px;
+}
+.outer-box{
+    width: 70%;
+    box-shadow: 0 0 10px rgb(12 11 11 / 28%);
+    padding: 20px;
+    border-radius: 15px;
+    height: 55%;
+}
+input{
+    padding: 10px;
+}
+
+label{
+    font-weight: 500;
+}
+// img{
+//     width: 85%;
+// }
