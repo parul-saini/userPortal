@@ -1,5 +1,6 @@
 <!-- <p>dashboard works!</p> -->
 <div class="container-fluid row p-0 m-0">
+    <!-- side navbar  -->
     <div class="col-2 side-nav">
        <div class="heading">
         <p style="font-size: 25px;">Integrity Solution</p> 
@@ -15,9 +16,11 @@
         </div>
       </div>
     </div>
+
+    <!-- table content  -->
     <div class="col-10 p-0 m-0">
-        <div class="container-fluid p-0 m-0">
-            <div class="container p-3 d-flex justify-content-lg-between align-items-center">
+        <div class="container-fluid p-0 m-0 outer-box">
+            <div class="container d-name p-3 d-flex justify-content-lg-between align-items-center">
                 <div class="name">
                     <h4>Hi,Parul Saini👋</h4>
                 </div>
@@ -26,6 +29,63 @@
                    <span>Parul-saini</span>
                 </div>
             </div>
+            <div class="container row d-flex justify-content-lg-between align-items-center mt-4">
+                <div class="col-4">
+                    <div class="activeStatus p-3 d-flex align-items-center ">
+                        <div class="ps-4 "><img src="../../../assets/users.png" alt="" srcset=""></div>
+                        <div class="ms-3 d-flex justify-content-lg-between flex-column">  
+                            <div class="mb-1  fw-bold">Active</div> 
+                            <div class="text-secondary">20</div>
+                        </div>    
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="inactiveStatus p-3  d-flex align-items-center ">
+                        <div class="ps-4 "><img src="../../../assets/users.png" alt="" srcset=""></div>
+                        <div class="ms-3 d-flex justify-content-lg-between flex-column">  
+                            <div class="mb-0  fw-bold">Inactive</div> 
+                            <div class="text-secondary">200</div>
+                        </div>    
+                    </div>
+                </div>
+                <div class="col-4">
+                 
+                </div>
+            </div>
+            <div class="container">
+                <h1>User List</h1>
+                <table class="table table-striped">
+                    <thead>
+                      <tr>
+                        <th scope="col"># <span><i class="fas fa-sort fa-xs"></i></span></th>
+                        <th scope="col">First</th>
+                        <th scope="col">Last</th>
+                        <th scope="col">Handle</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">2</th>
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                        <td>@fat</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">3</th>
+                        <td>Larry</td>
+                        <td>the Bird</td>
+                        <td>@twitter</td>
+                      </tr>
+                    </tbody>
+                  </table>
+            </div> 
+
         </div>
     </div>
 </div>
