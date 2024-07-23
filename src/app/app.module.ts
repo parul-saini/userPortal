@@ -8,6 +8,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { AddUserComponent } from './components/add-user/add-user.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     LoginComponent,
     RegisterComponent,
     ForgotPasswordComponent,
-    DashboardComponent
+    DashboardComponent,
+    AddUserComponent
   ],
   imports: [
     BrowserModule,

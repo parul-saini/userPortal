@@ -45,11 +45,6 @@
     // filter: drop-shadow(2px 4px 6px #4285f4);
     filter: drop-shadow(3px 1px 0px #4285f4);
 }
-
-
-
-
-
 .outer-box{
     height: 100vh;
     background: #f5fafe
@@ -57,13 +52,4 @@
 
 .d-name{
     background-color: white;
-}
-
-.activeStatus{
-    background-color: rgb(218 233 253);
-    border-radius: 10px;
-}
-.inactiveStatus{
-    background-color:rgb(247 244 225);
-    border-radius: 10px;
 }
