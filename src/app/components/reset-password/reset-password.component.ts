@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/services/authService/auth.service';
 import { ActivatedRoute } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -15,7 +16,7 @@ export class ResetPasswordComponent {
   code :any;
   resetPassObj:any;
 
-  constructor(private fb: FormBuilder, private auth:AuthService,private route:ActivatedRoute){
+  constructor(private fb: FormBuilder, private auth:AuthService,private route:ActivatedRoute,private toastr: ToastrService){
    this.resetPasswordForm = this.fb.group({
     password:['',[Validators.required, 
       Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}'
@@ -48,18 +49,25 @@ export class ResetPasswordComponent {
      this.resetPassObj.email = this.email;
      this.resetPassObj.code = this.code;
      this.resetPassObj.password = this.resetPasswordForm.value.password;
-     console.log("code",this.resetPassObj );
+   //  console.log("code",this.resetPassObj );
 
      this.auth.resetPassword(this.resetPassObj).subscribe(
       (res)=>{
-       console.log(res);
+        this.toastr.success('Success',res.message, {
+          timeOut: 3000
+        });
       },
       (error)=>{
-       console.log(error);
+        this.toastr.error('Error',error.error, {
+          timeOut: 3000
+        });
       }
      )
    }else{
-     console.log("form is invalid");
+     //console.log("form is invalid");
+     this.toastr.warning('Error',"form is invalid", {
+      timeOut: 3000
+    });
    }
    this.resetPasswordForm.reset();
   }

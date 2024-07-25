@@ -23,7 +23,6 @@ export class AuthService {
   }
 
   resetPassword(resetPassObj:any):Observable<any>{
-
    return this.http.post<any>(`${this.apiUrl}/reset-password`,resetPassObj);
   }
 
