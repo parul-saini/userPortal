@@ -10,6 +10,10 @@ import { ForgotPasswordComponent } from './components/forgot-password/forgot-pas
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AddUserComponent } from './components/add-user/add-user.component';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
+import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule, provideAnimations } from '@angular/platform-browser/animations';
+import { ToastrModule, provideToastr } from 'ngx-toastr';
+
 
 @NgModule({
   declarations: [
@@ -26,7 +30,13 @@ import { ResetPasswordComponent } from './components/reset-password/reset-passwo
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    
+    HttpClientModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(
+      {
+        positionClass: 'toast-top-right'
+      }
+    ), // ToastrModule added
   ],
   providers: [],
   bootstrap: [AppComponent]

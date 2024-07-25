@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
+import { AuthService } from 'src/app/services/authService/auth.service';
 
 @Component({
   selector: 'app-forgot-password',
@@ -11,7 +13,11 @@ export class ForgotPasswordComponent {
   loginEmail: any;
   isSentEmail:boolean= false;
 
-  constructor(private fb: FormBuilder){
+  constructor(
+    private fb: FormBuilder,
+    private auth:AuthService,
+    private toastr: ToastrService,
+  ){
    this.loginForm = this.fb.group({
      email : ['', [Validators.required, Validators.email]],
     })
@@ -28,10 +34,27 @@ export class ForgotPasswordComponent {
   onSubmit(){
    if(this.loginForm.valid){
      console.log(this.loginForm.value);
-     this.loginForm.reset();
-     this.isSentEmail= true;
-   }else{
-     console.log("form is invalid");
-   }
+     var email= this.loginForm.value.email;
+     this.auth.sendEmailToForgotPassword(email).subscribe(
+      (res:any)=>{
+        // console.log(res);
+        this.toastr.success('Success', res.message, {
+          timeOut: 3000
+        });
+        this.isSentEmail= true;
+      },
+      (error:any)=>{
+        // console.log(error);
+        this.toastr.error('Error', error.error.message, {
+          timeOut: 3000
+        });
+      }
+     )
+    }else{
+      this.toastr.error('', "Check Your Mail", {
+        timeOut: 3000
+      });
+    }
+    this.loginForm.reset();
   }
 }
