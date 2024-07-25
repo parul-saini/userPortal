@@ -24,7 +24,7 @@ export class ForgotPasswordComponent {
   }
 
   public isValidEmail!: boolean;
- checkValidEmail(event: string) {
+  checkValidEmail(event: string) {
    const value = event;
    const pattern = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
    this.isValidEmail = pattern.test(value);
@@ -33,7 +33,7 @@ export class ForgotPasswordComponent {
 
   onSubmit(){
    if(this.loginForm.valid){
-     console.log(this.loginForm.value);
+    //  console.log(this.loginForm.value);
      var email= this.loginForm.value.email;
      this.auth.sendEmailToForgotPassword(email).subscribe(
       (res:any)=>{

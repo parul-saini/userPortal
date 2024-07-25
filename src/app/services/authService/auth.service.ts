@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -20,6 +20,11 @@ export class AuthService {
   sendEmailToForgotPassword(email:string):Observable<any>{
     // console.log(email);
      return this.http.get<any>(`${this.apiUrl}/reset-password-email/${email}`);
+  }
+
+  resetPassword(resetPassObj:any):Observable<any>{
+
+   return this.http.post<any>(`${this.apiUrl}/reset-password`,resetPassObj);
   }
 
 }
