@@ -13,7 +13,7 @@ export class AuthService {
   }
 
   login(loginCredential:any):Observable<any>{
-    console.log(loginCredential);
+    // console.log(loginCredential);
     return this.http.post<any>(`${this.apiUrl}/loginUser`,loginCredential);
   }
 

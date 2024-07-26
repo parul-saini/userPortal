@@ -67,3 +67,20 @@
     background-color:rgb(247 244 225);
     border-radius: 10px;
 }
+.userList{
+    border-radius: 20px;
+    // background: rgb(206, 65, 65);
+    background: white;
+    height: 72vh;
+}
+table thead tr th{
+    background-color: #dae9fd;
+}
+table tbody tr:nth-child(odd) td{
+    background-color: white !important;
+}
+
+table tbody tr:nth-child(even) td{
+    background-color: #f5f9fe !important;
+}
+

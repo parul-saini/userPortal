@@ -8,7 +8,7 @@
        <div class="side-nav-btn">
         <div class="overlay mt-3 ">
             <img src="../../../assets/layout-dashboard.png" alt="">
-            <a class="btnn">DashBoard</a>
+            <a routerLink="/dashboard" class="btnn">DashBoard</a>
         </div>
         <div class="overlay mt-3">
             <img src="../../../assets/users.png" alt="">
@@ -56,38 +56,63 @@
             </div>
 
             <!-- table to show the users  -->
-            <div class="container mt-3">
-                <!-- <h1>User List</h1> -->
-                <table class="table table-striped">
+            <div class="container  mt-3">
+              <div class="userList">
+                <div class="p-2">
+                  <h5 class="ms-3">User List</h5>
+                </div>
+                <table class="table ">
                     <thead>
-                      <tr>
-                        <th scope="col"># <span><i class="fas fa-sort fa-xs"></i></span></th>
-                        <th scope="col">First</th>
-                        <th scope="col">Last</th>
-                        <th scope="col">Handle</th>
+                      <tr >
+                        <th scope="col">First Name<span><i class="fas fa-sort fa-xs"></i></span></th>
+                        <th scope="col">Middle Name <span><i class="fas fa-sort fa-xs"></i></span></th>
+                        <th scope="col">Last Name <span><i class="fas fa-sort fa-xs"></i></span></th>
+                        <th scope="col">DOB <span><i class="fas fa-sort fa-xs"></i></span></th>
+                        <th scope="col">Email <span><i class="fas fa-sort fa-xs"></i></span></th>
+                        <th scope="col">Contact No <span><i class="fas fa-sort fa-xs"></i></span></th>
+                        <th scope="col">City <span><i class="fas fa-sort fa-xs"></i></span></th>
+                        <th scope="col">State<span><i class="fas fa-sort fa-xs"></i></span></th>
+                        <th scope="col">Action <span><i class="fas fa-sort fa-xs"></i></span></th>
                       </tr>
                     </thead>
                     <tbody>
                       <tr>
-                        <th scope="row">1</th>
+                        <td scope="row">joe</td>
                         <td>Mark</td>
                         <td>Otto</td>
-                        <td>@mdo</td>
+                        <td>28-03-2003</td>
+                        <td>email@gmail.com</td>
+                        <td>2824032003</td>
+                        <td>Kalka</td>
+                        <td>Haryana</td>
+                        <td><i class="fas fa-eye fa-lg"></i></td>
                       </tr>
                       <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
+                        <td scope="row">joe</td>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>28-03-2003</td>
+                        <td>email@gmail.com</td>
+                        <td>2824032003</td>
+                        <td>Kalka</td>
+                        <td>Haryana</td>
+                        <td><i class="fas fa-eye fa-lg"></i></td>
+                        <!-- <td><img src="../../../assets/eye 10.png" alt="" srcset=""></td> -->
                       </tr>
                       <tr>
-                        <th scope="row">3</th>
-                        <td>Larry</td>
-                        <td>the Bird</td>
-                        <td>@twitter</td>
+                        <td scope="row">joe</td>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>28-03-2003</td>
+                        <td>email@gmail.com</td>
+                        <td>2824032003</td>
+                        <td>Kalka</td>
+                        <td>Haryana</td>
+                        <td><i class="fas fa-eye-slash fa-lg"></i></td>
                       </tr>
                     </tbody>
-                  </table>
+                </table>
+              </div> 
             </div> 
 
         </div>
