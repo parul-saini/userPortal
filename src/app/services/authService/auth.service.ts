@@ -26,4 +26,15 @@ export class AuthService {
    return this.http.post<any>(`${this.apiUrl}/reset-password`,resetPassObj);
   }
 
+  getAllUsers():Observable<any>{
+    return this.http.get<any>(`${this.apiUrl}/getAllUsers`);
+  }
+
+  getAdmindetail():Observable<any>{
+    return this.http.get<any>(`${this.apiUrl}/getAdmindetail`);
+  }
+
+  updateActiveStatus(id:any):Observable<any>{
+    return this.http.get<any>(`${this.apiUrl}/updateActiveStatus/${id}`);
+  }
 }

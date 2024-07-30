@@ -1,3 +1,27 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+  
+mat-drawer {
+    width: 260px;
+}
+mat-drawer-container {
+    height: 100%;
+}
+
+mat-drawer {
+    background: #4285f4;
+}
+.userImage{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+
+
 .side-nav{
     height: 100vh;
     background: #4285f4;
@@ -10,8 +34,6 @@
     margin-top: 30px;
     border-bottom: 3px solid white;
 }
-
-
 /* Base styling */
 .side-nav-btn {
     position: relative;
@@ -29,7 +51,6 @@
     color: white;
     text-decoration: none;
 }
-
 /* Hover effect */
 .overlay:hover {
     background-color: white; 
@@ -49,7 +70,7 @@
 
 
 
-
+// table styling
 .outer-box{
     height: 100vh;
     background: #f5fafe
@@ -71,7 +92,7 @@
     border-radius: 20px;
     // background: rgb(206, 65, 65);
     background: white;
-    height: 72vh;
+    height: 70vh;
 }
 table thead tr th{
     background-color: #dae9fd;
@@ -84,3 +105,5 @@ table tbody tr:nth-child(even) td{
     background-color: #f5f9fe !important;
 }
 
+
+  

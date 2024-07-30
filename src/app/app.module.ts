@@ -10,10 +10,19 @@ import { ForgotPasswordComponent } from './components/forgot-password/forgot-pas
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AddUserComponent } from './components/add-user/add-user.component';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule, provideAnimations } from '@angular/platform-browser/animations';
 import { ToastrModule, provideToastr } from 'ngx-toastr';
-
+import { TokenInterceptor } from './interceptors/token.interceptor';
+import {MatButtonModule} from '@angular/material/button';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import { SidenavComponent } from './components/sidenav/sidenav.component';
+import { HeaderComponent } from './components/header/header.component';
+import { MatIconModule } from '@angular/material/icon';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatListModule } from '@angular/material/list';
 
 @NgModule({
   declarations: [
@@ -23,7 +32,9 @@ import { ToastrModule, provideToastr } from 'ngx-toastr';
     ForgotPasswordComponent,
     DashboardComponent,
     AddUserComponent,
-    ResetPasswordComponent
+    ResetPasswordComponent,
+    SidenavComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -32,13 +43,21 @@ import { ToastrModule, provideToastr } from 'ngx-toastr';
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    MatSidenavModule, MatButtonModule,
+    MatIconModule,MatToolbarModule ,MatMenuModule,MatListModule,
+    MatDividerModule,
     ToastrModule.forRoot(
       {
         positionClass: 'toast-top-right'
       }
     ), // ToastrModule added
+
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: TokenInterceptor,
+    multi : true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

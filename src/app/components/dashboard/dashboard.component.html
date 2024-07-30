@@ -1,121 +1,114 @@
 <!-- <p>dashboard works!</p> -->
-<div class="container-fluid row p-0 m-0">
-    <!-- side navbar  -->
-    <div class="col-2 side-nav">
-       <div class="heading">
-        <p style="font-size: 25px;">Integrity Solution</p> 
-       </div>
-       <div class="side-nav-btn">
-        <div class="overlay mt-3 ">
-            <img src="../../../assets/layout-dashboard.png" alt="">
-            <a routerLink="/dashboard" class="btnn">DashBoard</a>
-        </div>
-        <div class="overlay mt-3">
-            <img src="../../../assets/users.png" alt="">
-            <a class="btnn">Manage User</a>
-        </div>
-      </div>
-    </div>
+<mat-drawer-container>
+  <mat-drawer mode="side" [opened]="sideBarOpen">
+  <!-- <mat-drawer mode="side" opened="true"> -->
+    <app-sidenav></app-sidenav>
+  </mat-drawer>
 
-    <!-- table content block  -->
-    <div class="col-10 p-0 m-0">
-        <div class="container-fluid p-0 m-0 outer-box">
-            <div class="container d-name p-3 d-flex justify-content-lg-between align-items-center">
-                <div class="name">
-                    <h5>Hi,Parul Saini👋</h5>
-                </div>
-                <div class="image">
-                   <img class="me-2" src="../../../assets/user.png" alt="userDP" srcset="">
-                   <span class="fw-bold">Parul-saini</span>
-                </div>
+
+  <mat-drawer-content>
+    <app-header (toggleSidenavbarBtn)="sideBarToggler()"></app-header>
+    <div class="container-fluid row p-0 m-0" style="background: #f5fafe;height: 100%;">
+        <!-- active and inactive counts block  -->
+        <div class="container row d-flex justify-content-lg-between align-items-center mt-4">
+          <div class="col-3">
+              <div class="activeStatus p-3 d-flex align-items-center ">
+                  <div class=" "><img src="../../../assets/active.png" alt="" srcset=""></div>
+                  <div class="ms-3 d-flex justify-content-lg-between flex-column">  
+                      <div class="mb-1  fw-bold">Active</div> 
+                      <div class="text-secondary">{{active}}</div>
+                  </div>    
+              </div>
+          </div>
+          <div class="col-3">
+              <div class="inactiveStatus p-3  d-flex align-items-center ">
+                  <div class=" "><img src="../../../assets/inactive.png" alt="" srcset=""></div>
+                  <div class="ms-3 d-flex justify-content-lg-between flex-column">  
+                      <div class="mb-0  fw-bold">Inactive</div> 
+                      <div class="text-secondary">{{InActive}}</div>
+                  </div>    
+              </div>
+          </div>
+          <div class="col-6">
+          
+          </div>
+        </div>
+        
+        <!-- table to show the users  -->
+        <div class="container  mt-3">
+          <div class="userList">
+            <div class="p-2">
+              <h5 class="ms-3">User List</h5>
             </div>
-
-            <!-- active and inactive counts block  -->
-            <div class="container row d-flex justify-content-lg-between align-items-center mt-4">
-                <div class="col-3">
-                    <div class="activeStatus p-3 d-flex align-items-center ">
-                        <div class=" "><img src="../../../assets/active.png" alt="" srcset=""></div>
-                        <div class="ms-3 d-flex justify-content-lg-between flex-column">  
-                            <div class="mb-1  fw-bold">Active</div> 
-                            <div class="text-secondary">20</div>
-                        </div>    
-                    </div>
-                </div>
-                <div class="col-3">
-                    <div class="inactiveStatus p-3  d-flex align-items-center ">
-                        <div class=" "><img src="../../../assets/inactive.png" alt="" srcset=""></div>
-                        <div class="ms-3 d-flex justify-content-lg-between flex-column">  
-                            <div class="mb-0  fw-bold">Inactive</div> 
-                            <div class="text-secondary">200</div>
-                        </div>    
-                    </div>
-                </div>
-                <div class="col-6">
-                 
-                </div>
-            </div>
-
-            <!-- table to show the users  -->
-            <div class="container  mt-3">
-              <div class="userList">
-                <div class="p-2">
-                  <h5 class="ms-3">User List</h5>
-                </div>
-                <table class="table ">
-                    <thead>
-                      <tr >
-                        <th scope="col">First Name<span><i class="fas fa-sort fa-xs"></i></span></th>
-                        <th scope="col">Middle Name <span><i class="fas fa-sort fa-xs"></i></span></th>
-                        <th scope="col">Last Name <span><i class="fas fa-sort fa-xs"></i></span></th>
-                        <th scope="col">DOB <span><i class="fas fa-sort fa-xs"></i></span></th>
-                        <th scope="col">Email <span><i class="fas fa-sort fa-xs"></i></span></th>
-                        <th scope="col">Contact No <span><i class="fas fa-sort fa-xs"></i></span></th>
-                        <th scope="col">City <span><i class="fas fa-sort fa-xs"></i></span></th>
-                        <th scope="col">State<span><i class="fas fa-sort fa-xs"></i></span></th>
-                        <th scope="col">Action <span><i class="fas fa-sort fa-xs"></i></span></th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td scope="row">joe</td>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>28-03-2003</td>
-                        <td>email@gmail.com</td>
-                        <td>2824032003</td>
-                        <td>Kalka</td>
-                        <td>Haryana</td>
-                        <td><i class="fas fa-eye fa-lg"></i></td>
-                      </tr>
-                      <tr>
-                        <td scope="row">joe</td>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>28-03-2003</td>
-                        <td>email@gmail.com</td>
-                        <td>2824032003</td>
-                        <td>Kalka</td>
-                        <td>Haryana</td>
-                        <td><i class="fas fa-eye fa-lg"></i></td>
-                        <!-- <td><img src="../../../assets/eye 10.png" alt="" srcset=""></td> -->
-                      </tr>
-                      <tr>
-                        <td scope="row">joe</td>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>28-03-2003</td>
-                        <td>email@gmail.com</td>
-                        <td>2824032003</td>
-                        <td>Kalka</td>
-                        <td>Haryana</td>
-                        <td><i class="fas fa-eye-slash fa-lg"></i></td>
-                      </tr>
-                    </tbody>
-                </table>
-              </div> 
-            </div> 
-
-        </div>
+            <table class="table ">
+                <thead>
+                  <tr >
+                    <th scope="col">Image</th>
+                    <th scope="col">First Name<span><i class="fas fa-sort fa-xs"></i></span></th>
+                    <th scope="col">Middle Name <span><i class="fas fa-sort fa-xs"></i></span></th>
+                    <th scope="col">Last Name <span><i class="fas fa-sort fa-xs"></i></span></th>
+                    <th scope="col">DOB <span><i class="fas fa-sort fa-xs"></i></span></th>
+                    <th scope="col">Email <span><i class="fas fa-sort fa-xs"></i></span></th>
+                    <th scope="col">Contact No <span><i class="fas fa-sort fa-xs"></i></span></th>
+                    <th scope="col">City <span><i class="fas fa-sort fa-xs"></i></span></th>
+                    <th scope="col">State<span><i class="fas fa-sort fa-xs"></i></span></th>
+                    <th scope="col">Action <span><i class="fas fa-sort fa-xs"></i></span></th>
+                  </tr>
+                </thead>
+                <tbody *ngFor="let user of allUsers">
+                  <tr>
+                    <!-- <td scope="row"><img src={{user.imageUrl}} alt="" srcset=""></td> -->
+                    <td scope="row"><div class="userImage">
+                      <img width="50px" src="../../../assets/login.png" alt="" srcset=""></div>
+                    </td>
+                    <td>{{user?.firstName}}</td>
+                    <td>{{user?.middleName}}</td>
+                    <td>{{user?.lastName}}</td>
+                    <td>{{user?.dob}}</td>
+                    <td>{{user?.email}}</td>
+                    <td>{{user?.phone}}</td>
+                    <td>{{user?.addresses[0].city}}</td>
+                    <td>{{user?.addresses[0].state}}</td>
+                    <td>
+                      <button class="border-0" (click)="updateActiveStatus(user.userId)">
+                        <i *ngIf="user?.active; else inactiveIcon" class="fas fa-eye fa-lg"></i>
+                        <ng-template #inactiveIcon>
+                          <i class="fas fa-eye-slash fa-lg"></i>
+                        </ng-template>
+                    </button>
+                    </td>
+                  </tr>
+                  <!-- <tr>
+                    <td scope="row">joe</td>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>28-03-2003</td>
+                    <td>email@gmail.com</td>
+                    <td>2824032003</td>
+                    <td>Kalka</td>
+                    <td>Haryana</td>
+                    <td><i class="fas fa-eye fa-lg"></i></td>
+                  </tr>
+                  <tr>
+                    <td scope="row">joe</td>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>28-03-2003</td>
+                    <td>email@gmail.com</td>
+                    <td>2824032003</td>
+                    <td>Kalka</td>
+                    <td>Haryana</td>
+                    <td><i class="fas fa-eye-slash fa-lg"></i></td>
+                  </tr> -->
+                </tbody>
+            </table>
+          </div> 
+        </div> 
     </div>
-</div>
+  </mat-drawer-content>
+
+
+</mat-drawer-container>
+
+
 
