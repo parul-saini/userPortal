@@ -1,3 +1,68 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+  
+mat-drawer {
+    width: 260px;
+}
+mat-drawer-container {
+    height: 100%;
+}
+
+mat-drawer {
+    background: #4285f4;
+}
+.userImage{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+
+// form css
+.user-form{
+    border-radius: 13px;
+    background: white;
+    // height: 70vh;
+}
+.imgcircle{
+    border: 2px dotted;
+    border-radius: 50%;
+    width: 83px;
+    height: 83px;
+    background: #eeefef;
+}
+.uploadtext{
+    font-weight: 500;
+}
+#imageUrl{
+    display: none;
+}
+.browse{
+    padding: 6px 10px;
+    border-radius: 7px;
+    background: aliceblue;    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .side-nav{
     height: 100vh;
     background: #4285f4;

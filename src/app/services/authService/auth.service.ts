@@ -12,6 +12,11 @@ export class AuthService {
 
   }
 
+  addUser(user:any):Observable<any>{
+    console.log(user);
+    return this.http.post<any>(`${this.apiUrl}/RegisterUser`,user);
+  }
+
   login(loginCredential:any):Observable<any>{
     // console.log(loginCredential);
     return this.http.post<any>(`${this.apiUrl}/loginUser`,loginCredential);
