@@ -69,13 +69,16 @@
                     <td>{{user?.phone}}</td>
                     <td>{{user?.addresses[0].city}}</td>
                     <td>{{user?.addresses[0].state}}</td>
-                    <td>
-                      <button class="border-0" (click)="updateActiveStatus(user.userId)">
-                        <i *ngIf="user?.active; else inactiveIcon" class="fas fa-eye fa-lg"></i>
-                        <ng-template #inactiveIcon>
-                          <i class="fas fa-eye-slash fa-lg"></i>
-                        </ng-template>
-                    </button>
+                    <td >
+                      <div class="d-flex justify-content-center align-items-center">
+                        <button class="border-0" (click)="updateActiveStatus(user.userId)">
+                          <i *ngIf="user?.active; else inactiveIcon" class="fas fa-eye fa-lg"></i>
+                          <ng-template #inactiveIcon>
+                            <i class="fas fa-eye-slash fa-lg"></i>
+                          </ng-template>
+                        </button>
+                        <mat-icon class="m-1">delete</mat-icon>
+                    </div>
                     </td>
                   </tr>
                   <!-- <tr>
@@ -88,18 +91,8 @@
                     <td>Kalka</td>
                     <td>Haryana</td>
                     <td><i class="fas fa-eye fa-lg"></i></td>
-                  </tr>
-                  <tr>
-                    <td scope="row">joe</td>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>28-03-2003</td>
-                    <td>email@gmail.com</td>
-                    <td>2824032003</td>
-                    <td>Kalka</td>
-                    <td>Haryana</td>
-                    <td><i class="fas fa-eye-slash fa-lg"></i></td>
                   </tr> -->
+                  
                 </tbody>
             </table>
           </div> 

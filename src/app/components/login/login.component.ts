@@ -39,8 +39,8 @@ export class LoginComponent {
       // console.log(this.loginForm.value);
       this.auth.login(this.loginForm.value).subscribe(
         (response:any)=>{
-          localStorage.setItem('token',response.token);
-          this.router.navigate(['dashboard']);     
+          localStorage.setItem('token',response.token); //set the token
+          this.router.navigate(['']);     
           this.toastr.success('Message', "Login SuccessFully:)", {
             timeOut: 3000
           });

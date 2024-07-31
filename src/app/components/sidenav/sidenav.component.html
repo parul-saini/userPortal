@@ -1,4 +1,4 @@
-<mat-nav-list>
+<!-- <mat-nav-list>
     <div class="logo py-4">
       <img src="" alt="Company Logo" />
     </div>
@@ -15,4 +15,35 @@
     <a mat-list-item> <mat-icon>edit</mat-icon> Link 4 </a>
     <a mat-list-item> <mat-icon>edit</mat-icon> Link 5 </a>
     <a mat-list-item> <mat-icon>edit</mat-icon> Link 6 </a>
+</mat-nav-list> -->
+
+<mat-nav-list>
+  <div class="mt-4 text-center">
+    <h2 class=" text-white">Integrity Solution</h2>
+  </div>
+  <mat-divider></mat-divider>
+
+  <div routerLinkActive="list-item-active" [routerLinkActiveOptions]="{ exact: true }"   mat-list-item class="mt-4 mat-list-item d-flex align-items-center " routerLink="">
+    <mat-icon class="ms-3 ">dashboard</mat-icon> 
+    <a class="user " routerLink="" > Dashboard </a>
+    <mat-icon class="user-image-icon me-2 "></mat-icon>
+  </div>
+
+  <div routerLinkActive="list-item-active" [routerLinkActiveOptions]="{ exact: true }"    class="mt-3 mat-list-item d-flex align-items-center ">
+    <mat-icon class="ms-3 ">groups_2</mat-icon> 
+    <a  class="user " >
+     Mangage User
+    </a>
+    <mat-icon [matMenuTriggerFor]="menu" style="cursor: pointer;" class="user-image-icon ms-4 ">keyboard_arrow_down</mat-icon>
+    <mat-menu  xPosition="before" class="" style="width: 45%;" class="" style="width: 35%;" #menu="matMenu">
+        <button routerLinkActive="list-item-active" routerLink="/add-user"
+          class="d-flex align-items-center justify-content-between" mat-menu-item>      
+          <mat-icon class="ms-3 text-primary ">group</mat-icon>
+           <span class="text-primary" > 
+            Add User
+          </span>
+        </button>
+    </mat-menu>
+  </div>
+
 </mat-nav-list>

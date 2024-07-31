@@ -19,6 +19,13 @@ export class TokenInterceptor implements HttpInterceptor {
   }
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
+
+     // Check if the request URL contains 'cloudinary'
+     if (request.url.includes('https://api.cloudinary.com')) {
+      // If it's a Cloudinary request, pass it without modifying
+      return next.handle(request);
+    }
+    
     const myToken = localStorage.getItem('token');
     if(myToken){
       request = request.clone({

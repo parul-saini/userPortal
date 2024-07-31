@@ -23,6 +23,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatListModule } from '@angular/material/list';
+import { NgxUiLoaderModule, NgxUiLoaderHttpModule } from "ngx-ui-loader";
 
 @NgModule({
   declarations: [
@@ -51,7 +52,10 @@ import { MatListModule } from '@angular/material/list';
         positionClass: 'toast-top-right'
       }
     ), // ToastrModule added
-
+    NgxUiLoaderModule, // import NgxUiLoaderModule
+    NgxUiLoaderHttpModule.forRoot({
+      showForeground: true // Optional: Shows loader on HTTP requests
+    }) 
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

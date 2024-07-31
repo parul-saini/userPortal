@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/services/authService/auth.service';
 import { Country, State, City } from 'country-state-city';
+import { CloudinaryService } from 'src/app/services/cloud/cloudinary.service';
 
 @Component({
   selector: 'app-add-user',
@@ -23,7 +24,9 @@ export class AddUserComponent {
   cityListBasedOnStateCode:any;
   isActive:any;
  
-  constructor(private fb:FormBuilder, private auth:AuthService, private toastr:ToastrService){
+  constructor(private fb:FormBuilder, private auth:AuthService, private toastr:ToastrService,
+    private cloudservice:CloudinaryService
+  ){
     this.countryList = Country.getAllCountries();
     this.userForm = this.fb.group({
       userId: [0],
@@ -81,6 +84,7 @@ export class AddUserComponent {
   onSubmit():void{
     console.log("submit");
     var generatedPassword= this.generatePassword();
+    console.log(generatedPassword,"password");
     this.userForm.patchValue({ password: generatedPassword });
     if(this.userForm.valid){
       this.auth.addUser(this.userForm.value).subscribe(
@@ -118,22 +122,55 @@ export class AddUserComponent {
     console.log(this.sideBarOpen);
   }
   
-  previewUrl:any;
+  uploadedImageUrl:any;
+  // uploadImage(event:any){
+  //   const file: File = event.target.files[0];
+  //   if (file) {
+  //     console.log(file.name);
+    
+  //     // Create a preview URL
+  //     const reader = new FileReader();
+
+  //     reader.onload = (e: any) => {
+  //       this.previewUrl = e.target?.result as string;
+  //       this.userForm.patchValue({
+  //         imageUrl: this.previewUrl
+  //       });
+  //     };
+  //     reader.readAsDataURL(file);
+  //   }
+   
+  // }
+  
+  //use cloudinary to store the images 
+  private cloudName = 'dh38nn2gn' ;
+  private uploadPreset = 'User-portal';
+
+  // to get the round shaped of image
+  getCircularImageUrl(publicId: string): string {
+    return `https://res.cloudinary.com/${this.cloudName}/image/upload/ar_1:1,c_auto,g_auto,w_500/r_max/${publicId}.jpg`;
+  }
+   
+  // upload the image in cloudinary
   uploadImage(event:any){
     const file: File = event.target.files[0];
     if (file) {
-      console.log(file.name);
-    
-      // Create a preview URL
-      const reader = new FileReader();
-
-      reader.onload = (e: any) => {
-        this.previewUrl = e.target?.result as string;
-        this.userForm.patchValue({
-          imageUrl: this.previewUrl
-        });
-      };
-      reader.readAsDataURL(file);
+      const formData = new FormData();
+      formData.append('file', file);
+      formData.append('upload_preset', this.uploadPreset);
+      formData.append('cloud_name', this.cloudName);
+      formData.append('folder', 'user-portal');
+   
+      this.cloudservice.uploadImage(formData).subscribe(
+          (response: any) => {
+          this.uploadedImageUrl = response.secure_url; 
+          this.uploadedImageUrl= this.getCircularImageUrl(response.public_id)  ;       
+        //  console.log('Cloudinary returns the image URL in the response:', this.uploadedImageUrl);
+          this.userForm.patchValue({
+            imageUrl: this.uploadedImageUrl 
+          });
+        }
+      );
     }
    
   }
