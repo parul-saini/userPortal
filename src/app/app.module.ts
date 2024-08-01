@@ -24,6 +24,8 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatListModule } from '@angular/material/list';
 import { NgxUiLoaderModule, NgxUiLoaderHttpModule } from "ngx-ui-loader";
+import { MatDialogModule } from '@angular/material/dialog';
+import { DialogAnimationBoxComponent } from './dialog-animation-box/dialog-animation-box.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,8 @@ import { NgxUiLoaderModule, NgxUiLoaderHttpModule } from "ngx-ui-loader";
     AddUserComponent,
     ResetPasswordComponent,
     SidenavComponent,
-    HeaderComponent
+    HeaderComponent,
+    DialogAnimationBoxComponent
   ],
   imports: [
     BrowserModule,
@@ -56,7 +59,8 @@ import { NgxUiLoaderModule, NgxUiLoaderHttpModule } from "ngx-ui-loader";
     NgxUiLoaderModule, // import NgxUiLoaderModule
     NgxUiLoaderHttpModule.forRoot({
       showForeground: true // Optional: Shows loader on HTTP requests
-    }) 
+    }) ,
+    MatDialogModule,
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

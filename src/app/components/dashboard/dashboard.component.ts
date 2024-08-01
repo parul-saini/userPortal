@@ -1,22 +1,26 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component, EventEmitter, Output, ViewChild } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, inject, Output, ViewChild } from '@angular/core';
 import { MatDrawer } from '@angular/material/sidenav';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/services/authService/auth.service';
 import { Country, State, City } from 'country-state-city';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogAnimationBoxComponent } from 'src/app/dialog-animation-box/dialog-animation-box.component';
+
+
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.scss']
+  styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent {
   allUsers: any = [];
   admin:any;
   sideBarOpen :boolean = true;
-
-
+  readonly dialog = inject(MatDialog) ;
+  
   @ViewChild('drawer') drawer!: MatDrawer;
   showFiller = false;
 
@@ -26,7 +30,7 @@ export class DashboardComponent {
     this.getAllUsers();
    // this.getAdmindetail();
   }
-
+  
 
   active : any;
   InActive : any;
@@ -102,14 +106,28 @@ export class DashboardComponent {
   }
 
   UpdateUserDetails(userId:any){
-
+    this.router.navigate(['/add-user'], { queryParams: { id: userId } });
   }
 
 // Sorting an array of objects by a specific property
-sortData(column: any) {
-  this.allUsers.sort((a:any, b:any) => {
-    return a[column] > b[column] ? 1 : -1;
-  });
-}
+  sortData(column: any) {
+    this.allUsers.sort((a:any, b:any) => {
+      return a[column] > b[column] ? 1 : -1;
+    });
+  }
 
+  openDialog(userId:any,enterAnimationDuration: string, exitAnimationDuration: string): void {
+    const dialogRef = this.dialog.open(DialogAnimationBoxComponent, {
+      width: '250px',
+      enterAnimationDuration,
+      exitAnimationDuration,
+    });
+
+    dialogRef.afterClosed().subscribe((result: any) => {
+      //console.log(userId); 
+      if (result) {
+        this.deleteUser(userId); 
+      } 
+    });
+  }
 }

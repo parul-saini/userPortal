@@ -1,0 +1,8 @@
+<h2 mat-dialog-title>Delete file</h2>
+<mat-dialog-content>
+  Would you like to delete this user?
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">No</button>
+  <button class="text-bg-danger" mat-button cdkFocusInitial (click)="onYesClick()">Yes</button>
+</mat-dialog-actions>

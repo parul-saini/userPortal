@@ -27,7 +27,7 @@ export class HeaderComponent {
     this.auth.getAdmindetail().subscribe(
       (res: any) => {
         this.admin = res.data;
-       // console.log('admin',this.admin);
+      //  console.log('admin',this.admin);
       },
       (error: HttpErrorResponse) => {
         if (error.status === 401) {

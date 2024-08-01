@@ -113,7 +113,9 @@
                       <div class="d-flex justify-content-center align-items-center">
                         <mat-icon style="cursor: pointer;" class="m-1 text-primary" 
                         (click)="UpdateUserDetails(user?.userId)">edit_note</mat-icon>
-                        <mat-icon style="cursor: pointer;" class="m-1 text-danger fs-5" (click)="deleteUser(user?.userId)">backspace</mat-icon>
+                        <mat-icon style="cursor: pointer;" class="m-1 text-danger fs-5" 
+                        (click)="openDialog(user?.userId,'1000ms', '1000ms')">backspace</mat-icon>
+                        <!-- <mat-icon style="cursor: pointer;" class="m-1 text-danger fs-5" (click)="deleteUser(user?.userId)">backspace</mat-icon> -->
                       </div>
                     </td>
                   </tr>    

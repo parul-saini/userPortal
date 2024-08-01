@@ -46,4 +46,13 @@ export class AuthService {
   deleteUserById(id:any):Observable<any>{
     return this.http.delete<any>(`${this.apiUrl}/deleteById/${id}`);
   }
+
+  getUserDetails(id:any):Observable<any>{
+     return this.http.get<any>(`${this.apiUrl}/getUserDetails/${id}`);
+  }
+
+  updateUser(user:any):Observable<any>{
+    console.log(user);
+    return this.http.post<any>(`${this.apiUrl}/updateUser`,user);
+  }
 }
