@@ -80,7 +80,7 @@
                         <div class="col-md-4">
                           <label for="inputState" class="form-label">Gender</label>
                           <select id="inputState" class="form-select" formControlName="gender">
-                            <option selected>Select Your Gender...</option>
+                            <option value="" disabled selected>Select Your Gender...</option>
                             <option value="male">Male</option>
                             <option value="female">Female</option>
                             <option value="other">Others</option>
@@ -103,7 +103,7 @@
                             <div *ngIf="
                             getControl('dob')?.errors &&
                             (getControl('dob')?.touched ||
-                              getControl('dob')?.dirty)
+                            getControl('dob')?.dirty)
                           ">
                           <small class="text-danger" *ngIf="getControl('dob')?.errors?.['required']">Dob is required</small>   
                            </div>
@@ -144,6 +144,7 @@
                           ">
                           <small class="text-danger" *ngIf="getControl('phone')?.errors?.['required']">Phone is required</small>   
                            </div>
+                          <small class="text-danger" *ngIf="getControl('phone')?.errors?.['maxlength']">Phone No. Can not be more than 10 digits</small>
                       </div>
       
                       <div class="col-4">
@@ -151,6 +152,7 @@
                            <label class="form-label text-weight" for="alternatephone">Alternate Phone</label>
                           </div>
                           <input type="email" id="alternatephone" class="form-control" placeholder="Alternate Phone" formControlName="alternatePhone">
+                          <small class="text-danger" *ngIf="getControl('alternatePhone')?.errors?.['maxlength']">Phone No. Can not be more than 10 digits</small>
                       </div>
                     </div>
                      
@@ -162,7 +164,7 @@
                           <div>
                             <label class="form-label text-weight" for="lastName">Address Line 1</label>
                           </div>
-                          <input type="text" id="lastName" (keypress)="blockSpaceValidaton($event)" class="form-control" placeholder="Address1" formControlName="addressLine1" />
+                          <input type="text" id="lastName"  class="form-control" placeholder="Address1" formControlName="addressLine1" />
                         </div>
                         <div class="col-4">
                           <label for="inputState" class="form-label">Country</label>
@@ -212,7 +214,7 @@
                           <div>
                             <label class="form-label text-weight" for="lastName">Address Line 2</label>
                           </div>
-                          <input type="text" id="lastName" (keypress)="blockSpaceValidaton($event)" class="form-control" placeholder="Address1" formControlName="addressLine2"  />
+                          <input type="text" id="lastName" class="form-control" placeholder="Address1" formControlName="addressLine2"  />
                         </div>
                         <div class="col-4">
                           <label for="inputState" class="form-label">Country</label>

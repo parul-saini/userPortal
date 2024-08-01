@@ -42,4 +42,8 @@ export class AuthService {
   updateActiveStatus(id:any):Observable<any>{
     return this.http.get<any>(`${this.apiUrl}/updateActiveStatus/${id}`);
   }
+
+  deleteUserById(id:any):Observable<any>{
+    return this.http.delete<any>(`${this.apiUrl}/deleteById/${id}`);
+  }
 }

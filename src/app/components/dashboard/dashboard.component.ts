@@ -4,6 +4,7 @@ import { MatDrawer } from '@angular/material/sidenav';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/services/authService/auth.service';
+import { Country, State, City } from 'country-state-city';
 
 @Component({
   selector: 'app-dashboard',
@@ -82,4 +83,33 @@ export class DashboardComponent {
       }
     )
   }
+
+  deleteUser(userId:any){
+    this.auth.deleteUserById(userId).subscribe(
+      (res:any)=>{
+        this.getAllUsers();
+        this.toastr.success("Success",res.message);
+      },
+      (error:any)=>{
+        this.toastr.success("Success",error.error.message);
+      }
+    )
+  }
+
+  getStateByCode(stateCode:any,countryCode:any){
+    var state= State.getStateByCodeAndCountry(stateCode, countryCode);
+    return state?.name;
+  }
+
+  UpdateUserDetails(userId:any){
+
+  }
+
+// Sorting an array of objects by a specific property
+sortData(column: any) {
+  this.allUsers.sort((a:any, b:any) => {
+    return a[column] > b[column] ? 1 : -1;
+  });
+}
+
 }

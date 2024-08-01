@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 
+
 @Component({
   selector: 'app-sidenav',
   templateUrl: './sidenav.component.html',
@@ -7,4 +8,5 @@ import { Component, Input } from '@angular/core';
 })
 export class SidenavComponent {
   @Input() showFiller = false;
+ 
 }

@@ -37,16 +37,24 @@
 }
 
 
-.cdk-overlay-container > .cdk-overlay-connected-position-bounding-box
-{
-   left: 7px !important;
-   right: 4px;
-   width: 253px !important;
-   border: 2px solid !important;
-   align-items: flex-end !important;
-
+::ng-deep .cdk-overlay-connected-position-bounding-box{
+  left: 17px !important;
+  top: 210.433px !important;
 }
 
+::ng-deep .cdk-overlay-pane {
+  top: 211.433px !important;
+    width: 20% !important;
+   // border: 2px solid;
+}
+
+::ng-deep #mat-menu-panel-0 {
+  width: 100% !important;
+  display: flex !important;
+//   justify-content: normal !important;
+//   align-items: center !important;
+    border: 2px solid #4285f4;
+}
 
 
 

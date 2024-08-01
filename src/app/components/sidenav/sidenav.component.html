@@ -35,15 +35,23 @@
      Mangage User
     </a>
     <mat-icon [matMenuTriggerFor]="menu" style="cursor: pointer;" class="user-image-icon ms-4 ">keyboard_arrow_down</mat-icon>
-    <mat-menu  xPosition="before" class="" style="width: 45%;" class="" style="width: 35%;" #menu="matMenu">
+    <mat-menu  xPosition="before" class="" style="width: 45%;" class="custom-menu" style="width: 35%;" #menu="matMenu" >
         <button routerLinkActive="list-item-active" routerLink="/add-user"
-          class="d-flex align-items-center justify-content-between" mat-menu-item>      
+          class="bg-transparent d-flex align-items-center justify-content-between" mat-menu-item>      
           <mat-icon class="ms-3 text-primary ">group</mat-icon>
            <span class="text-primary" > 
             Add User
           </span>
         </button>
+        <!-- <button routerLinkActive="list-item-active" routerLink="/add-user"
+          class="d-flex align-items-center justify-content-between" mat-menu-item>      
+          <mat-icon class="ms-3 text-primary ">group</mat-icon>
+           <span class="text-primary" > 
+            Add User
+          </span>
+        </button> -->
     </mat-menu>
+
   </div>
 
 </mat-nav-list>

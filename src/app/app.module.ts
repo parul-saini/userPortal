@@ -49,7 +49,8 @@ import { NgxUiLoaderModule, NgxUiLoaderHttpModule } from "ngx-ui-loader";
     MatDividerModule,
     ToastrModule.forRoot(
       {
-        positionClass: 'toast-top-right'
+        positionClass: 'toast-top-right',
+        timeOut: 2000,
       }
     ), // ToastrModule added
     NgxUiLoaderModule, // import NgxUiLoaderModule
