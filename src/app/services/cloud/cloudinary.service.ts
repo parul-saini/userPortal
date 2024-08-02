@@ -6,7 +6,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class CloudinaryService {
-  private cloudName = 'put-your-cloud-name' ;
+  private cloudName = 'dh38nn2gn' ;
+
   constructor(private http: HttpClient) {}
 
   uploadImage(data:any):Observable<any> {

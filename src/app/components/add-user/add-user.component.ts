@@ -6,7 +6,7 @@ import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/services/authService/auth.service';
 import { Country, State, City } from 'country-state-city';
 import { CloudinaryService } from 'src/app/services/cloud/cloudinary.service';
-import { getStateByCode } from 'country-state-city/lib/state';
+
 
 @Component({
   selector: 'app-add-user',
@@ -64,7 +64,7 @@ export class AddUserComponent {
     this.activeLink.queryParams.subscribe(
       (value:Params) =>{
       const userId = value['id']
-      console.log(userId);
+      
         if(userId){
           this.isUpdate = true;
           this.updateuserDetails(userId);
@@ -125,7 +125,7 @@ export class AddUserComponent {
   // }
   
   //use cloudinary to store the images 
-  private cloudName = 'put-your-cloud-name' ;
+  private cloudName = 'dh38nn2gn' ;
   private uploadPreset = 'User-portal';
 
   // to get the round shaped of image

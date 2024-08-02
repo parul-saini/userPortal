@@ -76,15 +76,15 @@
                         <img 
                           *ngIf="user?.imageUrl; else defaultImage"
                           [src]="user?.imageUrl"
-                          width="50"
-                          height="50"
+                          width="40"
+                          height="40"
                           alt="User Image"
                         />
                         <ng-template #defaultImage>
                           <img 
                             src="../../../assets/userpng.jpg"
-                            width="50"
-                            height="50"
+                            width="40"
+                            height="40"
                             alt="Default User Image"
                             class="text-black"
                           />

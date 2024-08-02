@@ -41,7 +41,9 @@
                     <div class="form-group row mb-5">
                       <div class="col-4">
                           <div>
-                              <label class="form-label text-weight" for="firstName">First Name</label>
+                            <label class="form-label text-weight" for="firstName">
+                              <span class="text-danger">*</span> First Name
+                            </label>
                           </div>
                           <input type="text" id="firstName" (keypress)="blockSpaceValidaton($event)" class="form-control" placeholder="First Name" formControlName="firstName" />
                           <div *ngIf="
@@ -62,7 +64,7 @@
       
                       <div class="col-4">
                           <div>
-                              <label class="form-label text-weight" for="lastName">Last Name</label>
+                              <label class="form-label text-weight" for="lastName"><span class="text-danger">*</span>Last Name</label>
                           </div>
                           <input type="text" id="lastName" (keypress)="blockSpaceValidaton($event)" class="form-control" placeholder="Last Name" formControlName="lastName"
                            />
@@ -78,7 +80,7 @@
 
                     <div class="form-group row mb-5">
                         <div class="col-md-4">
-                          <label for="inputState" class="form-label">Gender</label>
+                          <label for="inputState" class="form-label"><span class="text-danger">*</span>Gender</label>
                           <select id="inputState" class="form-select" formControlName="gender">
                             <option value="" disabled selected>Select Your Gender...</option>
                             <option value="male">Male</option>
@@ -96,7 +98,7 @@
 
                         <div class="col-4">
                             <div>
-                                <label class="form-label text-weight" for="dob">Date Of Birth</label>
+                                <label class="form-label text-weight" for="dob"><span class="text-danger">*</span>Date Of Birth</label>
                             </div>
                             <input type="date" id="dob" class="form-control" 
                             max="{{dateNow}}" placeholder="Date Of birth" formControlName="dob" />
@@ -111,7 +113,7 @@
       
                         <div class="col-4">
                             <div>
-                                <label class="form-label text-weight" for="Email">Email</label>
+                                <label class="form-label text-weight" for="Email"><span class="text-danger">*</span>Email</label>
                             </div>
                             <input type="email" id="Email" class="form-control" placeholder="Email" formControlName="email" />
                             <div *ngIf="
@@ -134,7 +136,7 @@
       
                       <div class="col-4">
                           <div>
-                            <label class="form-label text-weight" for="Phone">Phone</label>
+                            <label class="form-label text-weight" for="Phone"><span class="text-danger">*</span>Phone</label>
                           </div>
                           <input type="tel" id="Phone" (keypress)="PhoneNumberValidation($event)" class="form-control" placeholder="Phone" formControlName="phone" >
                           <div *ngIf="
