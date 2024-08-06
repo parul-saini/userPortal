@@ -41,8 +41,8 @@ export class AddUserComponent {
       dateOfJoining: [''],
       dob: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      phone: ['', [Validators.required, Validators.maxLength(10)]],
-      alternatePhone: ['',[Validators.maxLength(10)]],
+      phone: ['', [Validators.required, Validators.maxLength(10),Validators.minLength(10)]],
+      alternatePhone: ['',[Validators.maxLength(10),Validators.minLength(10)]],
       password: [''],
       role: ['user'],
       imageUrl: [''],
@@ -84,7 +84,8 @@ export class AddUserComponent {
   // changing actice status
   onChange(event: Event): void {
     const checkbox = event.target as HTMLInputElement;
-    this.isActive = checkbox.checked? 1 : 0;
+    this.isActive = checkbox.checked? 0 : 1; //opp as it is inactive btn
+    this.userForm.patchValue({active: this.isActive});
   }
   
   generatePassword(length: number = 8): string {
@@ -182,17 +183,6 @@ export class AddUserComponent {
     this.cityListBasedOnStateCode = City.getCitiesOfState(this.countryCode,event.target.value);
   }
 
-  getStateNameByCode(code:any,countryCode:any){
-   var obj= State.getStateByCodeAndCountry(code,countryCode);
-   console.log(obj?.name,"state");
-   return obj?.name;
-  }
-
-  getCountryNameByCode(code:any){
-   var obj = Country.getCountryByCode(code);
-   console.log(obj?.name);
-   return obj?.name;
-  }
 
   updateuserDetails(id:any){
     var detailsToPatch;
@@ -243,7 +233,7 @@ export class AddUserComponent {
 
   addUserFirstTime(){
     var generatedPassword= this.generatePassword();
-    console.log(generatedPassword,"password");
+    
     this.userForm.patchValue({ password: generatedPassword });
     if(this.userForm.valid){
       this.auth.addUser(this.userForm.value).subscribe(
@@ -275,7 +265,7 @@ export class AddUserComponent {
   }
 
   onSubmit():void{
-    console.log("submit");
+    // console.log("submit");
     if(!this.isUpdate){
       this.addUserFirstTime()
     }else{

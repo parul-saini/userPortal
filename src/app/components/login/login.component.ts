@@ -19,11 +19,16 @@ export class LoginComponent {
     private auth:AuthService,
     private toastr: ToastrService,
     private router: Router,
-    ){
+    ){ 
     this.loginForm = this.fb.group({
       email : ['', [Validators.required, Validators.email]],
       password : ['', Validators.required]
-     })
+     });
+
+     if(this.auth.isLoggedIn()){
+        router.navigate(['/']);
+     }
+     
    }
 
   public isValidEmail!: boolean;

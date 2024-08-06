@@ -118,7 +118,7 @@ export class DashboardComponent {
 
   openDialog(userId:any,enterAnimationDuration: string, exitAnimationDuration: string): void {
     const dialogRef = this.dialog.open(DialogAnimationBoxComponent, {
-      width: '250px',
+      width: '400px',
       enterAnimationDuration,
       exitAnimationDuration,
     });

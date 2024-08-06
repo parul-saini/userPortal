@@ -12,6 +12,10 @@ export class AuthService {
 
   }
 
+  isLoggedIn(){
+    return !!localStorage.getItem('token');
+  }
+
   addUser(user:any):Observable<any>{
     console.log(user);
     return this.http.post<any>(`${this.apiUrl}/RegisterUser`,user);
@@ -52,7 +56,7 @@ export class AuthService {
   }
 
   updateUser(user:any):Observable<any>{
-    console.log(user);
+    // console.log(user);
     return this.http.post<any>(`${this.apiUrl}/updateUser`,user);
   }
 }
