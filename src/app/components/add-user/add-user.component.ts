@@ -126,7 +126,7 @@ export class AddUserComponent {
   // }
   
   //use cloudinary to store the images 
-  private cloudName = 'dh38nn2gn' ;
+  private cloudName = 'use cloud name ' ;
   private uploadPreset = 'User-portal';
 
   // to get the round shaped of image

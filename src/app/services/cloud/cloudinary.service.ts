@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class CloudinaryService {
-  private cloudName = 'dh38nn2gn' ;
+  private cloudName = 'use cloud name ' ;
 
   constructor(private http: HttpClient) {}
 
